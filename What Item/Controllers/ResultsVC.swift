@@ -10,14 +10,15 @@ import UIKit
 
 class ResultsVC: UIViewController {
     
+    @IBOutlet weak var aboutButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
+    let netBrain = NetworkingManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI()
-        navigationBarStyle()
         
     }
     
@@ -38,6 +39,10 @@ class ResultsVC: UIViewController {
             titleLabel.textAlignment = .right
             textLabel.textAlignment = .right
         }
+        
+        navigationBarStyle()
+        netBrain.fetchURL(usersObject: V.userWord)
+        aboutButton.setTitle("About \(V.userWord.capitalized)", for: .normal)
     }
     
     func navigationBarStyle() {

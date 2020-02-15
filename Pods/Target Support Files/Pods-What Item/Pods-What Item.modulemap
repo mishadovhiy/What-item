@@ -1,0 +1,6 @@
+module Pods_What_Item {
+  umbrella header "Pods-What Item-umbrella.h"
+
+  export *
+  module * { export * }
+}
