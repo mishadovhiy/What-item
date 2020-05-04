@@ -81,7 +81,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 extension ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         goPressed()
         return true
     }

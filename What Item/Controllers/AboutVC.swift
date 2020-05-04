@@ -10,12 +10,14 @@ import UIKit
 
 class AboutVC: UIViewController {
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarStyle()
         textView.text = V.textHolder
+        titleLabel.text = "About \(V.userWord.capitalized)"
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -27,7 +29,6 @@ class AboutVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = Colors.background
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        title = "About \(V.userWord)"
 
     }
     

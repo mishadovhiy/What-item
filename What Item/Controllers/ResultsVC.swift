@@ -42,7 +42,7 @@ class ResultsVC: UIViewController {
         
         navigationBarStyle()
         netBrain.fetchURL(usersObject: V.userWord)
-        aboutButton.setTitle("About \(V.userWord.capitalized)", for: .normal)
+        aboutButton.setTitle("About \(V.userWord)", for: .normal)
     }
     
     func navigationBarStyle() {
