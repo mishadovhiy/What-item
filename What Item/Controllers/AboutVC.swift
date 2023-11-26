@@ -8,18 +8,16 @@
 
 import UIKit
 
-class AboutVC: UIViewController {
+class AboutVC: SuperVC {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var titleLabel: UILabel!
     var predicted:String?
-    var dismissed:(()->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         textView.text = ""
         titleLabel.text = "About \(predicted?.capitalized ?? "")"
         loadApi()
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -42,7 +40,7 @@ class AboutVC: UIViewController {
 }
 
 extension AboutVC {
-    static func configure(word:String?, dismissed:(()->())?) -> AboutVC {
+    static func configure(word:String?, dismissed:(()->())? = nil) -> AboutVC {
         let storybard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storybard.instantiateViewController(withIdentifier: "AboutVC") as! AboutVC
         vc.predicted = word

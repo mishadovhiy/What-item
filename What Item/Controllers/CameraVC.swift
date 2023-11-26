@@ -15,23 +15,12 @@ class CameraVC: UIViewController {
     @IBOutlet weak var wikipediaButton: UIButton!
 
     private var cameraModel:CameraModel!
-    var mlModel:MLImageModel!// = .init(camera: self.cameraModel, vc: self)
-
-    var timerStopped:Bool = false
+    var mlModel:MLImageModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraModel = .init(view: self.view)
         mlModel = .init(camera: cameraModel, vc: self)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-//          //  self.mlCapture()
-////            Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
-////                if !self.timerStopped {
-////                    self.mlCapture()
-////                }
-////            }
-//        })
-        
         togglePrimaryButton(false, animated: false)
     }
     
@@ -53,10 +42,7 @@ class CameraVC: UIViewController {
     
 
     @IBAction func wikipediaPressed(_ sender: Any) {
-        timerStopped = true
-        self.present(AboutVC.configure(word: predictionLabel.text, dismissed: {
-            self.timerStopped = false
-        }), animated: true)
+        self.present(AboutVC.configure(word: predictionLabel.text), animated: true)
     }
     
     @IBAction func cameraPressed(_ sender: Any) {
