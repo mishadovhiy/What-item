@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D12A49923F8B4860081B34E /* NetworkingBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12A49823F8B4860081B34E /* NetworkingBrain.swift */; };
+		8D12A49923F8B4860081B34E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12A49823F8B4860081B34E /* API.swift */; };
 		8D12A49C23F8B5110081B34E /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12A49B23F8B5110081B34E /* AboutVC.swift */; };
+		8D3F58B02B138C12008A7C2D /* RegButton+RegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F58AF2B138C12008A7C2D /* RegButton+RegView.swift */; };
+		8D3F58B32B138F35008A7C2D /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F58B22B138F35008A7C2D /* ImagePreviewVC.swift */; };
+		8D3F58B62B1399E1008A7C2D /* DetectText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F58B52B1399E1008A7C2D /* DetectText.swift */; };
+		8D3F58BA2B13B463008A7C2D /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3F58B92B13B463008A7C2D /* text.png */; };
+		8DBF1C262B128C990043B953 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF1C252B128C990043B953 /* CameraVC.swift */; };
+		8DBF1C282B1297EF0043B953 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF1C272B1297EF0043B953 /* CameraModel.swift */; };
+		8DBF1C2A2B12A2260043B953 /* MLImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF1C292B12A2260043B953 /* MLImageModel.swift */; };
+		8DBF1C2C2B12B52F0043B953 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF1C2B2B12B52F0043B953 /* UIView.swift */; };
 		8DF35B1F23F44CDE0003A97D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF35B1E23F44CDE0003A97D /* AppDelegate.swift */; };
 		8DF35B2123F44CDE0003A97D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF35B2023F44CDE0003A97D /* SceneDelegate.swift */; };
-		8DF35B2323F44CDE0003A97D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF35B2223F44CDE0003A97D /* ViewController.swift */; };
 		8DF35B2623F44CDE0003A97D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DF35B2423F44CDE0003A97D /* Main.storyboard */; };
 		8DF35B2823F44CE10003A97D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DF35B2723F44CE10003A97D /* Assets.xcassets */; };
 		8DF35B2B23F44CE10003A97D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DF35B2923F44CE10003A97D /* LaunchScreen.storyboard */; };
-		8DF35B3623F44FEF0003A97D /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF35B3523F44FEF0003A97D /* ResultsVC.swift */; };
 		8DF35B3823F4501E0003A97D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8DF35B3723F4501D0003A97D /* Inceptionv3.mlmodel */; };
 		8DF35B3A23F4539E0003A97D /* Constance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF35B3923F4539E0003A97D /* Constance.swift */; };
 		E63C306A58EFEEB160A0088F /* libPods-What Item.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5AB7CCC8F011ECA59758DF /* libPods-What Item.a */; };
@@ -24,17 +30,23 @@
 /* Begin PBXFileReference section */
 		3E5AB7CCC8F011ECA59758DF /* libPods-What Item.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-What Item.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EE2B132ED02ABBA78C8F66 /* Pods-What Item.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-What Item.release.xcconfig"; path = "Target Support Files/Pods-What Item/Pods-What Item.release.xcconfig"; sourceTree = "<group>"; };
-		8D12A49823F8B4860081B34E /* NetworkingBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingBrain.swift; sourceTree = "<group>"; };
+		8D12A49823F8B4860081B34E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8D12A49B23F8B5110081B34E /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		8D3F58AF2B138C12008A7C2D /* RegButton+RegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegButton+RegView.swift"; sourceTree = "<group>"; };
+		8D3F58B22B138F35008A7C2D /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
+		8D3F58B52B1399E1008A7C2D /* DetectText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectText.swift; sourceTree = "<group>"; };
+		8D3F58B92B13B463008A7C2D /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
+		8DBF1C252B128C990043B953 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		8DBF1C272B1297EF0043B953 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		8DBF1C292B12A2260043B953 /* MLImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLImageModel.swift; sourceTree = "<group>"; };
+		8DBF1C2B2B12B52F0043B953 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8DF35B1B23F44CDE0003A97D /* What Item.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "What Item.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF35B1E23F44CDE0003A97D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DF35B2023F44CDE0003A97D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8DF35B2223F44CDE0003A97D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8DF35B2523F44CDE0003A97D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DF35B2723F44CE10003A97D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DF35B2A23F44CE10003A97D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DF35B2C23F44CE10003A97D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DF35B3523F44FEF0003A97D /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		8DF35B3723F4501D0003A97D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		8DF35B3923F4539E0003A97D /* Constance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constance.swift; sourceTree = "<group>"; };
 		986DD8446E94910504F065E2 /* Pods-What Item.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-What Item.debug.xcconfig"; path = "Target Support Files/Pods-What Item/Pods-What Item.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,9 +76,36 @@
 		8D12A49A23F8B48D0081B34E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D12A49823F8B4860081B34E /* NetworkingBrain.swift */,
+				8D12A49823F8B4860081B34E /* API.swift */,
+				8DBF1C272B1297EF0043B953 /* CameraModel.swift */,
+				8DBF1C292B12A2260043B953 /* MLImageModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8D3F58B12B138C1C008A7C2D /* UIModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D3F58AF2B138C12008A7C2D /* RegButton+RegView.swift */,
+			);
+			path = UIModel;
+			sourceTree = "<group>";
+		};
+		8D3F58B42B1399D2008A7C2D /* ImagePreviewVC */ = {
+			isa = PBXGroup;
+			children = (
+				8D3F58B22B138F35008A7C2D /* ImagePreviewVC.swift */,
+				8D3F58B52B1399E1008A7C2D /* DetectText.swift */,
+			);
+			path = ImagePreviewVC;
+			sourceTree = "<group>";
+		};
+		8DBF1C2D2B12B5360043B953 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF1C2B2B12B52F0043B953 /* UIView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		8DF35B1223F44CDE0003A97D = {
@@ -91,8 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				8DF35B3723F4501D0003A97D /* Inceptionv3.mlmodel */,
+				8D3F58B92B13B463008A7C2D /* text.png */,
 				8DF35B1E23F44CDE0003A97D /* AppDelegate.swift */,
 				8DF35B2023F44CDE0003A97D /* SceneDelegate.swift */,
+				8D3F58B12B138C1C008A7C2D /* UIModel */,
 				8D12A49A23F8B48D0081B34E /* Model */,
 				8DF35B3323F44D340003A97D /* Controllers */,
 				8DF35B3223F44D2A0003A97D /* Views */,
@@ -114,8 +155,8 @@
 		8DF35B3323F44D340003A97D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8DF35B2223F44CDE0003A97D /* ViewController.swift */,
-				8DF35B3523F44FEF0003A97D /* ResultsVC.swift */,
+				8DBF1C252B128C990043B953 /* CameraVC.swift */,
+				8D3F58B42B1399D2008A7C2D /* ImagePreviewVC */,
 				8D12A49B23F8B5110081B34E /* AboutVC.swift */,
 			);
 			path = Controllers;
@@ -126,6 +167,7 @@
 			children = (
 				8DF35B2723F44CE10003A97D /* Assets.xcassets */,
 				8DF35B2923F44CE10003A97D /* LaunchScreen.storyboard */,
+				8DBF1C2D2B12B5360043B953 /* Extension */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -197,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3F58BA2B13B463008A7C2D /* text.png in Resources */,
 				8DF35B2B23F44CE10003A97D /* LaunchScreen.storyboard in Resources */,
 				8DF35B2823F44CE10003A97D /* Assets.xcassets in Resources */,
 				8DF35B2623F44CDE0003A97D /* Main.storyboard in Resources */,
@@ -235,14 +278,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBF1C2C2B12B52F0043B953 /* UIView.swift in Sources */,
 				8DF35B3823F4501E0003A97D /* Inceptionv3.mlmodel in Sources */,
-				8DF35B2323F44CDE0003A97D /* ViewController.swift in Sources */,
+				8DBF1C262B128C990043B953 /* CameraVC.swift in Sources */,
+				8DBF1C282B1297EF0043B953 /* CameraModel.swift in Sources */,
+				8D3F58B62B1399E1008A7C2D /* DetectText.swift in Sources */,
 				8DF35B3A23F4539E0003A97D /* Constance.swift in Sources */,
-				8DF35B3623F44FEF0003A97D /* ResultsVC.swift in Sources */,
 				8D12A49C23F8B5110081B34E /* AboutVC.swift in Sources */,
+				8D3F58B02B138C12008A7C2D /* RegButton+RegView.swift in Sources */,
 				8DF35B1F23F44CDE0003A97D /* AppDelegate.swift in Sources */,
+				8DBF1C2A2B12A2260043B953 /* MLImageModel.swift in Sources */,
+				8D3F58B32B138F35008A7C2D /* ImagePreviewVC.swift in Sources */,
 				8DF35B2123F44CDE0003A97D /* SceneDelegate.swift in Sources */,
-				8D12A49923F8B4860081B34E /* NetworkingBrain.swift in Sources */,
+				8D12A49923F8B4860081B34E /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
