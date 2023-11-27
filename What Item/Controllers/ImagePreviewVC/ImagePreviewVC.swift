@@ -37,6 +37,18 @@ class ImagePreviewVC:SuperVC {
             self.present(imgPicker, animated: true)
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print("gerfeadwef")
+        self.view.subviews.forEach {
+            if $0.contains(touches),
+               $0.layer.name != nil
+            {
+                print($0.layer.name)
+            }
+        }
+    }
 }
 
 extension ImagePreviewVC:UINavigationControllerDelegate, UIImagePickerControllerDelegate {

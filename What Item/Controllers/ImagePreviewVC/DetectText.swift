@@ -18,11 +18,8 @@ class DetectText {
                     return }
                 DispatchQueue.main.async {
                     var i = 0
-                    self.addShapes(observation: obthervations, imgView: img).forEach {
-                        let view = UIView(frame: $0.frame)
-                        img.layer.addSublayer($0)
-                        let button = UIButton()
-                        button.setTitle("dsds", for: .normal)
+                    self.addShapes(observation: obthervations, imgView: img).forEach { layer in
+                        let view = UIView(frame: layer.frame)
                         let box = obthervations[i]
 
                         if let gestureImage = self.cropImage(for: box, in: img.image!) {
@@ -31,15 +28,15 @@ class DetectText {
                                 view.isUserInteractionEnabled = true
                                 view.backgroundColor = .red.withAlphaComponent(0.2)
                                 view.layer.name = str
-                                button.layer.name = str
                                 view.addGestureRecognizer(UITapGestureRecognizer(target: nil, action: #selector(self.layerPressed(_:))))
+                                
+                           //     layer.name = str
                             }
                         }
                         
+                        img.layer.addSublayer(layer)
 
-                        view.addSubview(button)
-                        button.addConstaits([.top:0, .left:0], superV: view)
-                        button.addTarget(nil, action: #selector(self.layerPressedd(_:)), for: .touchUpInside)
+                     //   view.addSubview(button)
                         vcView.addSubview(view)
                         i += 1
                     }
@@ -201,4 +198,13 @@ extension UIView {
         }
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    func contains(_ touches: Set<UITouch>) -> Bool {
+            if let loc = touches.first?.location(in: self),
+               frame.contains(loc) {
+                return true
+            } else {
+                return false
+            }
+        }
 }
