@@ -9,29 +9,42 @@
 import UIKit
 import Vision
 
-
 class DetectText {
-    func recognize(img:UIImageView) {
+    func recognize(img:UIImageView, vcView:UIView) {
         DispatchQueue(label: "ml", qos: .userInitiated).async {
             let request = VNDetectTextRectanglesRequest { request, error in
-                guard let obthervations = request.results as? [VNTextObservation] else { return }
+                guard let obthervations = request.results as? [VNTextObservation] else { 
+                    print("nooo text")
+                    return }
                 DispatchQueue.main.async {
+                    var i = 0
                     self.addShapes(observation: obthervations, imgView: img).forEach {
                         let view = UIView(frame: $0.frame)
                         img.layer.addSublayer($0)
-                        img.addSubview(view)
-                        let gesture = UITapGestureRecognizer(target: nil, action: #selector(self.layerPressed(_:)))
-                        view.addGestureRecognizer(gesture)
-                       // img.addSubview(view)
+                        let button = UIButton()
+                        button.setTitle("dsds", for: .normal)
+                        let box = obthervations[i]
+
+                        if let gestureImage = self.cropImage(for: box, in: img.image!) {
+                            self.imgString(from: gestureImage) { str in
+                                print("ergwfeadsADSF")
+                                view.isUserInteractionEnabled = true
+                                view.backgroundColor = .red.withAlphaComponent(0.2)
+                                view.layer.name = str
+                                button.layer.name = str
+                                view.addGestureRecognizer(UITapGestureRecognizer(target: nil, action: #selector(self.layerPressed(_:))))
+                            }
+                        }
+                        
+
+                        view.addSubview(button)
+                        button.addConstaits([.top:0, .left:0], superV: view)
+                        button.addTarget(nil, action: #selector(self.layerPressedd(_:)), for: .touchUpInside)
+                        vcView.addSubview(view)
+                        i += 1
                     }
                 }
                 
-//                var detectedText = ""
-//                let req2 = request.results as! [VNRecognizedTextObservation]
-//                req2.forEach { obj in
-//                    detectedText += obj.topCandidates(1).first?.string ?? "?"
-//                }
-//                print("detectedTextdetectedTextdetectedText ",detectedText, " detectedTextdetectedTextdetectedText")
                 
             }
             DispatchQueue.main.async {
@@ -47,16 +60,67 @@ class DetectText {
         }
     }
     
+    private func cropImage(for observation: VNTextObservation, in image: UIImage) -> UIImage? {
+        let imageSize = image.size
+        let boundingBox = observation.boundingBox
+        
+        let x = boundingBox.origin.x * imageSize.width
+        let y = (1 - boundingBox.origin.y) * imageSize.height
+        let width = boundingBox.size.width * imageSize.width
+        let height = boundingBox.size.height * imageSize.height
+        
+        let cropRect = CGRect(x: x, y: y - height, width: width, height: height)
+        
+        if let cgImage = image.cgImage?.cropping(to: cropRect) {
+            return UIImage(cgImage: cgImage)
+        }
+        
+        return nil
+    }
+    
+    func performOCR(on image: UIImage, completion:(_ str:String)->()) {
+        guard let cgImage = image.cgImage else { return }
+        
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        
+        let textRecognitionRequest = VNRecognizeTextRequest { request, error in
+            guard let observations = request.results as? [VNRecognizedTextObservation] else {
+                print("No text found")
+                return
+            }
+
+            var detectedText = ""
+            for observation in observations {
+                guard let topCandidate = observation.topCandidates(1).first else { continue }
+                detectedText += topCandidate.string + "\n"
+            }
+
+            // Use detectedText here
+            print("Detected text: \(detectedText)")
+        }
+
+        do {
+            try requestHandler.perform([textRecognitionRequest])
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
+    
+    @objc private func layerPressedd(_ button:UIButton) {
+        print(button.layer.name, " tgerfwdq")
+        
+    }
     
     @objc private func layerPressed(_ sender: UITapGestureRecognizer) {
-        print(sender.name)
+        print(sender.name, " tgerfwdq")
     }
     
 }
 
 private extension DetectText {
     func addShapes(observation:[VNTextObservation], imgView:UIImageView) -> [CAShapeLayer] {
-        imgView.image
+
         return observation.map {
             let w = $0.boundingBox.size.width * imgView.bounds.width
             let h = $0.boundingBox.size.height * imgView.bounds.height
@@ -67,37 +131,74 @@ private extension DetectText {
             layer.borderColor = UIColor.red.cgColor
             layer.cornerRadius = 6
             layer.borderWidth = 1
-            let topCandidate = $0.characterBoxes?.first
-            
-            let text = ""//cropString(box: $0.bo, in: imgView)
-            print($0, " ythrtgerfw")
-            layer.name = text
             return layer
         }
     }
     
-    private func cropString(boxes:[VNRectangleObservation], in imgView:UIImageView) -> String? {
+    func imgString(from image: UIImage, compl:@escaping(_ str:String)->()) {
+        guard let cgImage = image.cgImage else { return }
+        
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        
+        let request = VNRecognizeTextRequest { request, error in
+            guard let observations = request.results as? [VNRecognizedTextObservation] else {
+                print("No text found")
+                return
+            }
+            
+            var recognizedText = ""
+            for observation in observations {
+                guard let topCandidate = observation.topCandidates(1).first else { continue }
+                recognizedText += topCandidate.string + "\n"
+            }
+            compl(recognizedText)
+           // compl(recognizedText)
+            print("Recognized text: \(recognizedText)")
+            // Use recognizedText here
+        }
+        
+        
+        do {
+            try requestHandler.perform([request])
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
+    func cropString(boxes:[VNRectangleObservation], in imgView:UIImageView, result:(String)->()) {
         var results:String = ""
+        var charactedImgs:[UIImage] = []
         boxes.forEach { box in
             let boundingBox = VNImageRectForNormalizedRect(box.boundingBox, Int(imgView.frame.width), Int(imgView.frame.height))
             
             if let croppedImage = imgView.image?.cgImage?.cropping(to: boundingBox)
             {
-//                let ciImage = CIImage(cgImage: croppedImage)
-//                let tesseract = G8Tesseract(language: "eng")
-//                tesseract?.image = croppedImage
-//                tesseract?.recognize()
-//                if let recognizedText = tesseract?.recognizedText {
-//                    results.append(recognizedText)
-//                } else {
-//                    //return nil
-//                }
+                let ciImage = UIImage(cgImage: croppedImage)
+                charactedImgs.append(ciImage)
+            }
+        }
 
-            } else {
-               // return nil
+        charactedImgs.forEach { img in
+            self.performOCR(on: img) { str in
+                results.append(str)
+                if img == charactedImgs.last {
+                    result(results)
+                }
             }
         }
         
-        return results
+        
+    }
+}
+
+extension UIView {
+    func addConstaits(_ constants:[NSLayoutConstraint.Attribute:CGFloat], superV:UIView) {
+        let layout = superV
+        constants.forEach { (key, value) in
+            let keyNil = key == .height || key == .width
+            let item:Any? = keyNil ? nil : layout
+            superV.addConstraint(.init(item: self, attribute: key, relatedBy: .equal, toItem: item, attribute: key, multiplier: 1, constant: value))
+        }
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

@@ -62,7 +62,7 @@ extension CameraVC: MLImageModelProtocol {
         predictionLabel.text = predicted ?? "-"
         togglePrimaryButton(predicted != nil)
         
-    //    self.present(ImagePreviewVC.configure(img: image), animated: true)
+        self.present(ImagePreviewVC.configure(img: image), animated: true)
     }
     
 }

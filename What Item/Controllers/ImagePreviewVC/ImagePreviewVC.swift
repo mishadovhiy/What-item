@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImagePreviewVC:UIViewController {
+class ImagePreviewVC:SuperVC {
     
     @IBOutlet weak var imageView: UIImageView!
     weak var image:UIImage?
@@ -16,13 +16,40 @@ class ImagePreviewVC:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   //     imageView.image = image
-        image = nil
-        textMLModel.recognize(img: self.imageView)
+        imageView.image = image
+     //   image = nil
+        self.detectText()
+    }
+
+    
+    private func detectText(img:UIImage? = nil) {
+        if let img = img {
+            imageView.image = img
+        }
+        textMLModel.recognize(img: self.imageView, vcView: self.view)
     }
     
-    
+    @IBAction func toPhotoLibraryPressed(_ sender: Any) {
+        let imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
+        imgPicker.allowsEditing = true
+        DispatchQueue.main.async {
+            self.present(imgPicker, animated: true)
+        }
+    }
 }
+
+extension ImagePreviewVC:UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selected = (info[.editedImage] as? UIImage)
+        else { return }
+        picker.dismiss(animated: true)
+     //   let nav = UINavigationController(rootViewController: ImagePreviewVC.configure(img: selected))
+       // self.present(nav, animated: true)
+        self.detectText(img: selected)
+    }
+}
+
 
 extension ImagePreviewVC {
     static func configure(img:UIImage?) -> ImagePreviewVC {
