@@ -38,16 +38,40 @@ class ImagePreviewVC:SuperVC {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        print("gerfeadwef")
+    var selectedSet:Set<String> = []
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        self.select(touches)
+
+    }
+    
+    private func select(_ touches: Set<UITouch>, canRemove:Bool = false) {
         self.view.subviews.forEach {
             if $0.contains(touches),
                $0.layer.name != nil
             {
-                print($0.layer.name)
+                let setContains = selectedSet.contains($0.layer.name!)
+                if setContains {
+                    if canRemove {
+                        selectedSet.remove($0.layer.name!)
+                    }
+                } else {
+                    selectedSet.insert($0.layer.name!)
+                }
+                if !setContains || canRemove {
+                    $0.animate(0.1)
+                    $0.backgroundColor = (setContains ? UIColor.red : .green).withAlphaComponent(DetectText.backgroundAlphaComp)
+                }
+               
+                print($0.layer.name, " rgterfwed")
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.select(touches, canRemove: true)
     }
 }
 

@@ -81,6 +81,7 @@
 				8D12A49823F8B4860081B34E /* API.swift */,
 				8DBF1C272B1297EF0043B953 /* CameraModel.swift */,
 				8DBF1C292B12A2260043B953 /* MLImageModel.swift */,
+				8D3F58B52B1399E1008A7C2D /* DetectText.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,15 +93,6 @@
 				8D3F58BD2B13C1C0008A7C2D /* SuperVC.swift */,
 			);
 			path = UIModel;
-			sourceTree = "<group>";
-		};
-		8D3F58B42B1399D2008A7C2D /* ImagePreviewVC */ = {
-			isa = PBXGroup;
-			children = (
-				8D3F58B22B138F35008A7C2D /* ImagePreviewVC.swift */,
-				8D3F58B52B1399E1008A7C2D /* DetectText.swift */,
-			);
-			path = ImagePreviewVC;
 			sourceTree = "<group>";
 		};
 		8DBF1C2D2B12B5360043B953 /* Extension */ = {
@@ -159,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				8DBF1C252B128C990043B953 /* CameraVC.swift */,
-				8D3F58B42B1399D2008A7C2D /* ImagePreviewVC */,
+				8D3F58B22B138F35008A7C2D /* ImagePreviewVC.swift */,
 				8D12A49B23F8B5110081B34E /* AboutVC.swift */,
 			);
 			path = Controllers;

@@ -10,6 +10,7 @@ import UIKit
 import Vision
 
 class DetectText {
+    static let backgroundAlphaComp:CGFloat = 0.2
     func recognize(img:UIImageView, vcView:UIView) {
         DispatchQueue(label: "ml", qos: .userInitiated).async {
             let request = VNDetectTextRectanglesRequest { request, error in
@@ -26,7 +27,7 @@ class DetectText {
                             self.imgString(from: gestureImage) { str in
                                 print("ergwfeadsADSF")
                                 view.isUserInteractionEnabled = true
-                                view.backgroundColor = .red.withAlphaComponent(0.2)
+                                view.backgroundColor = .red.withAlphaComponent(DetectText.backgroundAlphaComp)
                                 view.layer.name = str
                                 view.addGestureRecognizer(UITapGestureRecognizer(target: nil, action: #selector(self.layerPressed(_:))))
                                 
@@ -36,7 +37,6 @@ class DetectText {
                         
                         img.layer.addSublayer(layer)
 
-                     //   view.addSubview(button)
                         vcView.addSubview(view)
                         i += 1
                     }
@@ -91,8 +91,6 @@ class DetectText {
                 guard let topCandidate = observation.topCandidates(1).first else { continue }
                 detectedText += topCandidate.string + "\n"
             }
-
-            // Use detectedText here
             print("Detected text: \(detectedText)")
         }
 
@@ -110,7 +108,7 @@ class DetectText {
     }
     
     @objc private func layerPressed(_ sender: UITapGestureRecognizer) {
-        print(sender.name, " tgerfwdq")
+        print(sender.view?.layer.name, " tgerfwdq")
     }
     
 }
@@ -200,11 +198,32 @@ extension UIView {
     }
     
     func contains(_ touches: Set<UITouch>) -> Bool {
+        print(frame, " viewframee")
+        print(touches.first?.location(in: self), " locationtouch")
             if let loc = touches.first?.location(in: self),
-               frame.contains(loc) {
+               loc.inRangeX(frame: frame) {
+                
                 return true
             } else {
                 return false
             }
         }
+}
+
+extension CGPoint {
+    func inRangeX(frame:CGRect) -> Bool {
+        let rangeY = (frame.minY - 45)..<(frame.minY + frame.height + 50)
+        let containsY = rangeY.contains(y * 16.6) || rangeY.contains(y * 15.9) || rangeY.contains(y * 17.0)
+        print(containsY, " containscontainscontains")
+//        let rangeX = (frame.minX - 250).selfMin()..<(frame.minX + frame.width + 500)
+//        let containsX = rangeX.contains(x)
+//        print(containsX, " containsXcontainsXcontainsXcontainsX")
+        return containsY //&& containsX
+    }
+}
+
+extension CGFloat {
+    func selfMin(_ min:CGFloat = 0) -> CGFloat {
+        return self <= 0 ? 0 : self
+    }
 }
