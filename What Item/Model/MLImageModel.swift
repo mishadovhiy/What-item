@@ -92,15 +92,14 @@ struct MLModelManager {
     }
     
     private func model(_ mlType:Int) -> VNCoreMLModel? {
-        if mlType == 0 {
+        if mlType == 1 {
             guard let modelConf = try?
                     animalsImages(configuration: MLModelConfiguration()),
-                    //Inceptionv3(configuration: MLModelConfiguration()),
                 let model = try? VNCoreMLModel(for: modelConf.model) else {
                 return nil
             }
             return model
-        } else if mlType == 1 {
+        } else if mlType == 0 {
             guard let modelConf = try?
                     Inceptionv3(configuration: MLModelConfiguration()),
                 let model = try? VNCoreMLModel(for: modelConf.model) else {
