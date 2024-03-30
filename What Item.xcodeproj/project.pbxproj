@@ -14,6 +14,9 @@
 		8D3F58B62B1399E1008A7C2D /* DetectText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F58B52B1399E1008A7C2D /* DetectText.swift */; };
 		8D3F58BA2B13B463008A7C2D /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3F58B92B13B463008A7C2D /* text.png */; };
 		8D3F58BE2B13C1C0008A7C2D /* SuperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F58BD2B13C1C0008A7C2D /* SuperVC.swift */; };
+		8DA5813C2BB78E6400268810 /* animalsImages.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8DA5813B2BB78E6400268810 /* animalsImages.mlmodel */; };
+		8DA5813E2BB791AC00268810 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA5813D2BB791AC00268810 /* Haptic.swift */; };
+		8DA581412BB7976D00268810 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA581402BB7976D00268810 /* CALayer.swift */; };
 		8DBF1C262B128C990043B953 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF1C252B128C990043B953 /* CameraVC.swift */; };
 		8DBF1C282B1297EF0043B953 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF1C272B1297EF0043B953 /* CameraModel.swift */; };
 		8DBF1C2A2B12A2260043B953 /* MLImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF1C292B12A2260043B953 /* MLImageModel.swift */; };
@@ -38,6 +41,9 @@
 		8D3F58B52B1399E1008A7C2D /* DetectText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectText.swift; sourceTree = "<group>"; };
 		8D3F58B92B13B463008A7C2D /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
 		8D3F58BD2B13C1C0008A7C2D /* SuperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperVC.swift; sourceTree = "<group>"; };
+		8DA5813B2BB78E6400268810 /* animalsImages.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = animalsImages.mlmodel; sourceTree = "<group>"; };
+		8DA5813D2BB791AC00268810 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		8DA581402BB7976D00268810 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		8DBF1C252B128C990043B953 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		8DBF1C272B1297EF0043B953 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		8DBF1C292B12A2260043B953 /* MLImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLImageModel.swift; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 				8DBF1C272B1297EF0043B953 /* CameraModel.swift */,
 				8DBF1C292B12A2260043B953 /* MLImageModel.swift */,
 				8D3F58B52B1399E1008A7C2D /* DetectText.swift */,
+				8DA5813D2BB791AC00268810 /* Haptic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,9 +102,20 @@
 			path = UIModel;
 			sourceTree = "<group>";
 		};
+		8DA5813F2BB7975E00268810 /* Mics */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF1C2D2B12B5360043B953 /* Extension */,
+				8DF35B3423F44D810003A97D /* Supporting Files */,
+				8DF35B3923F4539E0003A97D /* Constance.swift */,
+			);
+			path = Mics;
+			sourceTree = "<group>";
+		};
 		8DBF1C2D2B12B5360043B953 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				8DA581402BB7976D00268810 /* CALayer.swift */,
 				8DBF1C2B2B12B52F0043B953 /* UIView.swift */,
 			);
 			path = Extension;
@@ -124,6 +142,7 @@
 		8DF35B1D23F44CDE0003A97D /* What Item */ = {
 			isa = PBXGroup;
 			children = (
+				8DA5813B2BB78E6400268810 /* animalsImages.mlmodel */,
 				8DF35B3723F4501D0003A97D /* Inceptionv3.mlmodel */,
 				8D3F58B92B13B463008A7C2D /* text.png */,
 				8DF35B1E23F44CDE0003A97D /* AppDelegate.swift */,
@@ -132,8 +151,7 @@
 				8D12A49A23F8B48D0081B34E /* Model */,
 				8DF35B3323F44D340003A97D /* Controllers */,
 				8DF35B3223F44D2A0003A97D /* Views */,
-				8DF35B3423F44D810003A97D /* Supporting Files */,
-				8DF35B3923F4539E0003A97D /* Constance.swift */,
+				8DA5813F2BB7975E00268810 /* Mics */,
 				8DF35B2C23F44CE10003A97D /* Info.plist */,
 			);
 			path = "What Item";
@@ -162,7 +180,6 @@
 			children = (
 				8DF35B2723F44CE10003A97D /* Assets.xcassets */,
 				8DF35B2923F44CE10003A97D /* LaunchScreen.storyboard */,
-				8DBF1C2D2B12B5360043B953 /* Extension */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -275,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA5813E2BB791AC00268810 /* Haptic.swift in Sources */,
 				8DBF1C2C2B12B52F0043B953 /* UIView.swift in Sources */,
 				8DF35B3823F4501E0003A97D /* Inceptionv3.mlmodel in Sources */,
 				8DBF1C262B128C990043B953 /* CameraVC.swift in Sources */,
@@ -283,12 +301,14 @@
 				8DF35B3A23F4539E0003A97D /* Constance.swift in Sources */,
 				8D12A49C23F8B5110081B34E /* AboutVC.swift in Sources */,
 				8D3F58B02B138C12008A7C2D /* RegButton+RegView.swift in Sources */,
+				8DA581412BB7976D00268810 /* CALayer.swift in Sources */,
 				8DF35B1F23F44CDE0003A97D /* AppDelegate.swift in Sources */,
 				8DBF1C2A2B12A2260043B953 /* MLImageModel.swift in Sources */,
 				8D3F58BE2B13C1C0008A7C2D /* SuperVC.swift in Sources */,
 				8D3F58B32B138F35008A7C2D /* ImagePreviewVC.swift in Sources */,
 				8DF35B2123F44CDE0003A97D /* SceneDelegate.swift in Sources */,
 				8D12A49923F8B4860081B34E /* API.swift in Sources */,
+				8DA5813C2BB78E6400268810 /* animalsImages.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

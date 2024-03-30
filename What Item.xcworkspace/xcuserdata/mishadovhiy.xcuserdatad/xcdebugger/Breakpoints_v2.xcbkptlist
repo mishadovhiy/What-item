@@ -14,8 +14,8 @@
             filePath = "What Item/Model/MLImageModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "photoOutput(_:didFinishProcessingPhoto:error:)"
             landmarkType = "7">
             <Locations>
@@ -107,8 +107,8 @@
             filePath = "What Item/Controllers/CameraVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "detected(_:image:)"
             landmarkType = "7">
             <Locations>
@@ -155,8 +155,8 @@
             filePath = "What Item/Model/MLImageModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "photoOutput(_:didFinishProcessingPhoto:error:)"
             landmarkType = "7">
             <Locations>
@@ -203,9 +203,9 @@
             filePath = "What Item/Model/MLImageModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "detect(image:completion:)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "detect(image:completion:mlType:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -251,9 +251,9 @@
             filePath = "What Item/Model/MLImageModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "detect(image:completion:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "detect(image:completion:mlType:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -287,22 +287,6 @@
                   offsetFromSymbolStart = "116">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "064CDF50-AB5B-49C6-84CB-4438A057C491"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "What Item/Model/MLImageModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "init(camera:vc:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -462,6 +446,38 @@
             startingLineNumber = "45"
             endingLineNumber = "45"
             landmarkName = "requestTransaction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59FBDB14-8CD2-486A-A657-AFECF3008D77"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "What Item/Model/MLImageModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "detect(image:completion:mlType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A3A3704-11BE-4F2D-970A-8F9C0DDE77F5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "What Item/Model/MLImageModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "detect(image:completion:mlType:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

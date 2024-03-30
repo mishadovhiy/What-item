@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QAy-xu-IPY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QAy-xu-IPY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -101,7 +101,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.078000001609325409" green="0.078000001609325409" blue="0.078000001609325409" alpha="0.95184151785714288" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="0.95184151785714288" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="F7L-Gx-Xu3" secondAttribute="bottom" constant="20" id="T8B-e3-D64"/>
                                     <constraint firstItem="F7L-Gx-Xu3" firstAttribute="top" secondItem="t8P-tt-qQL" secondAttribute="top" constant="20" id="VHA-j8-EBo"/>
@@ -115,17 +115,81 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0Y-B4-eZY">
+                                <rect key="frame" x="87" y="48" width="240" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kpu-FD-JMe">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNP-db-3pT" customClass="RegView" customModule="What_Item" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="100"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I4H-pF-le4">
+                                                        <rect key="frame" x="10" y="5" width="220" height="90"/>
+                                                        <subviews>
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ERc-Sj-r7W">
+                                                                <rect key="frame" x="26.5" y="0.0" width="167" height="32"/>
+                                                                <segments>
+                                                                    <segment title="any object"/>
+                                                                    <segment title="createML"/>
+                                                                </segments>
+                                                                <connections>
+                                                                    <action selector="typeSegmentChanged:" destination="QAy-xu-IPY" eventType="valueChanged" id="ALe-7R-Ecc"/>
+                                                                </connections>
+                                                            </segmentedControl>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="TlI-jz-DQ4">
+                                                                <rect key="frame" x="94.5" y="75.5" width="31" height="14.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="I4H-pF-le4" secondAttribute="bottom" constant="5" id="DYx-Je-5Qd"/>
+                                                    <constraint firstAttribute="height" constant="100" id="Mlp-X2-Car"/>
+                                                    <constraint firstItem="I4H-pF-le4" firstAttribute="top" secondItem="pNP-db-3pT" secondAttribute="top" constant="5" id="NC0-Wm-kK5"/>
+                                                    <constraint firstItem="I4H-pF-le4" firstAttribute="leading" secondItem="pNP-db-3pT" secondAttribute="leading" constant="10" id="UCv-3G-1za"/>
+                                                    <constraint firstAttribute="trailing" secondItem="I4H-pF-le4" secondAttribute="trailing" constant="10" id="ciY-GJ-SsJ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEb-Xf-bro">
+                                                <rect key="frame" x="0.0" y="100" width="240" height="100"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="kpu-FD-JMe" firstAttribute="top" secondItem="s0Y-B4-eZY" secondAttribute="top" id="1eu-h2-TH2"/>
+                                    <constraint firstAttribute="bottom" secondItem="kpu-FD-JMe" secondAttribute="bottom" id="SfV-vy-haz"/>
+                                    <constraint firstAttribute="trailing" secondItem="kpu-FD-JMe" secondAttribute="trailing" id="oWQ-PY-ZNy"/>
+                                    <constraint firstItem="kpu-FD-JMe" firstAttribute="leading" secondItem="s0Y-B4-eZY" secondAttribute="leading" id="yaz-cy-VyE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n0w-LI-7t9"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="t8P-tt-qQL" firstAttribute="width" relation="greaterThanOrEqual" secondItem="reX-X0-BA5" secondAttribute="width" multiplier="0.9" id="0qM-pA-8O2"/>
+                            <constraint firstItem="s0Y-B4-eZY" firstAttribute="top" secondItem="n0w-LI-7t9" secondAttribute="top" id="6hU-zu-epK"/>
                             <constraint firstItem="n0w-LI-7t9" firstAttribute="bottom" secondItem="t8P-tt-qQL" secondAttribute="bottom" constant="10" id="IEJ-4r-2Zi"/>
                             <constraint firstItem="t8P-tt-qQL" firstAttribute="centerX" secondItem="reX-X0-BA5" secondAttribute="centerX" id="IyR-M8-VK4"/>
+                            <constraint firstItem="s0Y-B4-eZY" firstAttribute="centerX" secondItem="reX-X0-BA5" secondAttribute="centerX" id="c3M-Ec-hm9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="predictionLabel" destination="glx-9Q-I9R" id="uD2-6W-5dt"/>
+                        <outlet property="selectedSegmentLabel" destination="TlI-jz-DQ4" id="HpM-rr-tjF"/>
+                        <outlet property="settingsStackView" destination="kpu-FD-JMe" id="FS3-NH-c4T"/>
                         <outlet property="wikipediaButton" destination="QIS-oG-osP" id="eYo-i8-UOC"/>
                     </connections>
                 </viewController>

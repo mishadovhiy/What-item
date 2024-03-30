@@ -14,14 +14,12 @@ import Vision
 class MLImageModel:NSObject {
     private let mlManager:MLModelManager
     private let delegate:MLImageModelProtocol
+    private var selectedSegment:Int = 0
     
     init(camera:CameraModel, vc:UIViewController) {
-        
         self.delegate = vc as! MLImageModelProtocol
         self.mlManager = .init()
         super.init()
-        
-
     }
     
     func capture(camera:CameraModel) {
@@ -36,6 +34,10 @@ class MLImageModel:NSObject {
         camera.output.capturePhoto(with: settings, delegate: delegate as! AVCapturePhotoCaptureDelegate)
     }
 
+    func segmentedChanged(label:UILabel, newValue:Int) {
+        self.selectedSegment = newValue
+        label.text = newValue == 1 ? "CreateML trained animal model\nWill detect cat / dog / rabbit" : "CoreML model \nWill detect any object"
+    }
 }
 extension MLImageModel {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -49,7 +51,7 @@ extension MLImageModel {
         mlManager.detect(image: CIImage(image: image),
                          completion: {
             self.delegate.detected($0, image:image)
-        })
+        }, mlType: selectedSegment)
     }
 
 }
@@ -61,9 +63,8 @@ protocol MLImageModelProtocol {
 
 
 struct MLModelManager {
-    func detect(image: CIImage?, completion:@escaping(_ detected:String?)->()) {
-        guard let modelConf = try? Inceptionv3(configuration: MLModelConfiguration()),
-              let model = try? VNCoreMLModel(for: modelConf.model),
+    func detect(image: CIImage?, completion:@escaping(_ detected:String?)->(), mlType:Int) {
+        guard let model = self.model(mlType),
               let image = image
         else {
             completion(nil)
@@ -87,8 +88,27 @@ struct MLModelManager {
         } catch {
             print("Error performing image request: \(error.localizedDescription)")
 
+        }        
+    }
+    
+    private func model(_ mlType:Int) -> VNCoreMLModel? {
+        if mlType == 0 {
+            guard let modelConf = try?
+                    animalsImages(configuration: MLModelConfiguration()),
+                    //Inceptionv3(configuration: MLModelConfiguration()),
+                let model = try? VNCoreMLModel(for: modelConf.model) else {
+                return nil
+            }
+            return model
+        } else if mlType == 1 {
+            guard let modelConf = try?
+                    Inceptionv3(configuration: MLModelConfiguration()),
+                let model = try? VNCoreMLModel(for: modelConf.model) else {
+                return nil
+            }
+            return model
+        } else {
+            return nil
         }
-
-        
     }
 }

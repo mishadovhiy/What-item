@@ -212,13 +212,11 @@ extension UIView {
 
 extension CGPoint {
     func inRangeX(frame:CGRect) -> Bool {
-        let rangeY = (frame.minY - 45)..<(frame.minY + frame.height + 50)
-        let containsY = rangeY.contains(y * 16.6) || rangeY.contains(y * 15.9) || rangeY.contains(y * 17.0)
+        let rangeY = (frame.minY - 10)..<(frame.minY + frame.height + 10)
+        let containsY = rangeY.contains(y * 16.6)
         print(containsY, " containscontainscontains")
-//        let rangeX = (frame.minX - 250).selfMin()..<(frame.minX + frame.width + 500)
-//        let containsX = rangeX.contains(x)
-//        print(containsX, " containsXcontainsXcontainsXcontainsX")
-        return containsY //&& containsX
+
+        return containsY
     }
 }
 
